@@ -48,7 +48,7 @@ export async function getServerSideProps() {
             </div>
             <div className="kenali">
                 <div className="container">
-                    <div className="title-section">
+                    <div className="title-section pt-3 pb-3">
                         <h1>Yuk Kenali Berbagai Macam Penyakit Mental</h1>
                     </div>
                     <div className="row mt-5">
