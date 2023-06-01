@@ -1,5 +1,6 @@
 import Layout from '../../layouts/default';
 import axios from "axios";
+import Styles from "../../styles/artikel.module.css"
 
 export async function getServerSideProps({ params }) {
 
@@ -19,18 +20,18 @@ function Post(props){
 
     return (
         <Layout>
-          <div className="detail-artikel">
+          <div className={Styles.detail_artikel}>
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-lg-12" key={post.id}>
-                    <div className="card-artikel">
+                    <div className={Styles.card_detail_artikel}>
                         <div className="card-img">
                             <img src={`${process.env.NEXT_PUBLIC_API_BACKEND}/storage/posts/${post.image}`} alt="" className="img-fluid"/>
                         </div>
-                        <div className="card-title-detail">
+                        <div className={Styles.card_title_detail}>
                             <h2>{post.title}</h2>
                         </div>
-                        <div className="card-content-detail" dangerouslySetInnerHTML={{ __html: post.content }}>
+                        <div className={Styles.card_content_detail} dangerouslySetInnerHTML={{ __html: post.content }}>
                         </div>
                     </div>
                 </div>

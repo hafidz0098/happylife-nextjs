@@ -10,7 +10,7 @@ function About(){
         <section id="team" className="team section-bg">
         <div className="container" data-aos="fade-up">
             <div className="title-section mb-5">
-                <h1>Meet Our Team</h1>
+                Meet Our Team
             </div>
           <div className="row">
             <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">

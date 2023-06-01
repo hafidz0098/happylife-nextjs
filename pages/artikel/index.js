@@ -2,6 +2,7 @@ import Layout from "../../layouts/default";
 import axios from "axios";
 import Link from 'next/link';
 import Head from "next/head";
+import Styles from "../../styles/artikel.module.css"
 
 
 export async function getServerSideProps() {
@@ -32,10 +33,10 @@ function PostIndex(props) {
         <Head>
             <title>Artikel</title>
         </Head>
-      <div className="artikel mt-70">
+      <div className={`mt-70 ${Styles.artikel}`}>
         <div className="container">
             <div className="title-section mb-5">
-                <h1>Artikel Tentang Kesehatan Mental</h1>
+                Artikel Tentang Kesehatan Mental
             </div>
             <div className="row gy-5 mb-5 justify-content-center">
             {posts.map((post) => (

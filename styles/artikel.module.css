@@ -1,0 +1,27 @@
+.artikel{
+    min-height: 100vh;
+}
+
+.detail_artikel{
+    padding-top: 100px;
+    min-height: 100vh;
+    background-color: #D4D4D4;
+    padding-bottom: 50px;
+  }
+
+.card_detail_artikel{
+    padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.card_title_detail{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.card_content_detail{
+  margin-bottom: 30px;
+  text-align: justify;
+}

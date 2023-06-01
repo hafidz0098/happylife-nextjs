@@ -2,6 +2,7 @@ import Layout from "../layouts/default";
 import Head from 'next/head';
 import Link from "next/link";
 import axios from "axios";
+import Styles from "../styles/Home.module.css"
 
 export async function getServerSideProps() {
     try {
@@ -32,13 +33,13 @@ export async function getServerSideProps() {
             <Head>
                 <title>HappyLife</title>
             </Head>
-            <div className="hero">
-                <div className="container">
+            <div className={Styles.hero}>
+                <div className={`container ${Styles.container_hero}`}>
                     <div className="row">
                         <div className="col-text col-lg-6 col-sm-12">
-                        <h1>Get your mental health wellbeing information</h1>
-                        <p>Seseorang dengan mental yang sehat akan memiliki pikiran yang lebih terfokus dan terarah sehingga memudahkan untuk mengumpulkan konsentrasi sehingga dapat melakukan aktivitas dengan maksimal</p>
-                        <button type="button" className="btn btn-custom">Selengkapnya</button>
+                        <h1 className={Styles.title}>Get your mental health wellbeing information</h1>
+                        <p className={Styles.desc}>Seseorang dengan mental yang sehat akan memiliki pikiran yang lebih terfokus dan terarah sehingga memudahkan untuk mengumpulkan konsentrasi sehingga dapat melakukan aktivitas dengan maksimal</p>
+                        <button type="button" className={`btn btn-custom ${Styles.heroBtn}`}>Selengkapnya</button>
                         </div>
                         <div className="col-img col-lg-6 col-sm-12">
                         <img src="hero-image.png" alt=""/>
@@ -46,10 +47,10 @@ export async function getServerSideProps() {
                     </div>
                 </div>
             </div>
-            <div className="kenali">
+            <div className={Styles.kenali}>
                 <div className="container">
-                    <div className="title-section pt-3 pb-3">
-                        <h1>Yuk Kenali Berbagai Macam Penyakit Mental</h1>
+                    <div className="title-section pt-5 pb-3">
+                        Yuk Kenali Berbagai Macam Penyakit Mental
                     </div>
                     <div className="row mt-5">
                         <div className="col-lg-3 col-md-6 col-sm-12 d-flex align-items-stretch">
@@ -94,10 +95,10 @@ export async function getServerSideProps() {
                     </div>
                 </div>
             </div>
-            <div className="artikel">
+            <div className={Styles.artikel}>
                 <div className="container">
                     <div className="title-section">
-                        <h1>Artikel Tentang Kesehatan Mental</h1>
+                        Artikel Tentang Kesehatan Mental
                     </div>
                         <div className="row mt-5 justify-content-center">
                             {latestPosts.map((post) => (
