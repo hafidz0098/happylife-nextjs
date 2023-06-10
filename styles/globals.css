@@ -93,6 +93,10 @@ button .navbar-toggler-icon{
     padding-top: 50px;
     font-size: 28px;
 } */
+.section-login{
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
 
 .card-body{
     padding: 20px;
