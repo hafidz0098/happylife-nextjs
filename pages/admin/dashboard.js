@@ -186,9 +186,15 @@ function Dashboard(props) {
                                         <td>{ post.title }</td>
                                         <td className="text-center">
                                             <Link href={`/admin/posts/edit/${post.id}`}>
-                                                <button className="btn btn-sm btn-primary border-0 shadow-sm mb-3 me-3">Edit</button>
+                                                <button className="btn btn-sm btn-primary border-0 shadow-sm mb-3 me-3"><i
+                                                    className="fa fa-edit"></i></button>
                                             </Link>
-                                            <button onClick={() => deletePost(post.id)} className="btn btn-sm btn-danger border-0 shadow-sm mb-3">Delete</button>
+                                            <Link href={`/artikel/${post.id}`} target="_blank">
+                                                <button className="btn btn-sm btn-warning border-0 shadow-sm mb-3 me-3"><i
+                                                    className="fa fa-eye"></i></button>
+                                            </Link>
+                                            <button onClick={() => deletePost(post.id)} className="btn btn-sm btn-danger border-0 shadow-sm mb-3"><i
+                                                className="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 )) }

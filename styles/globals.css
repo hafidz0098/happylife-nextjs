@@ -40,29 +40,6 @@ button .navbar-toggler-icon{
     margin-top: 20px;
 }
 
-/* .hero{
-    min-height: 100vh;
-    background-color: #182231;
-} */
-
-/* .hero h1{
-    color: #fff;
-    font-weight: bold;
-    font-size: 36px !important;
-} */
-
-/* .hero p{
-    color: #fff;
-    margin-top: 30px;
-} */
-
-/* .hero .container{
-    padding-top: 200px;
-} */
-
-/* .hero button{
-    margin-top: 30px;
-} */
 
 .title-section{
   text-align: center;
@@ -89,17 +66,6 @@ button .navbar-toggler-icon{
     color: #fff;
 }
 
-/* .kenali{
-    min-height: 75vh;
-    background-color: #D4D4D4 ;
-} */
-
-/* .title-section h1{
-    text-align: center;
-    font-weight: bold;
-    padding-top: 50px;
-    font-size: 28px;
-} */
 .section-login{
   margin-top: 150px;
   margin-bottom: 150px;
@@ -141,23 +107,6 @@ button .navbar-toggler-icon{
    -webkit-box-orient: vertical;
 }
 
-/* .artikel{
-    min-height: 100vh;
-} */
-
-/* .detail-artikel{
-  padding-top: 100px;
-  min-height: 100vh;
-  background-color: #D4D4D4;
-  padding-bottom: 50px;
-} */
-
-/* .card-artikel{
-  padding: 30px;
-  background: #fff;
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-} */
 
 .card-img img{
   object-fit: cover;
@@ -167,15 +116,6 @@ button .navbar-toggler-icon{
   margin-bottom: 20px;
 }
 
-/* .card-content-detail{
-  margin-bottom: 30px;
-  text-align: justify;
-} */
-
-/* .card-title-detail{
-  margin-top: 20px;
-  margin-bottom: 30px;
-} */
 
 .btn-artikel{
     background-color: #24CAE5 !important;
