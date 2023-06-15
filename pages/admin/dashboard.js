@@ -1,5 +1,5 @@
 
-import Layout from "../../layouts/default";
+import Layout from "../../layouts/admin";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -23,6 +23,7 @@ export async function getServerSideProps() {
 }
 
 function Dashboard(props) {
+
     const { posts } = props;
     const router = useRouter();
 
@@ -103,6 +104,13 @@ function Dashboard(props) {
         
         //call function "fetchData"
         fetchData();
+        const el = document.getElementById("wrapper");
+        const toggleButton = document.getElementById("menu-toggle");
+
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+
     }, []);
     
 
@@ -128,19 +136,42 @@ function Dashboard(props) {
             <Head>
                 <title>Dashboard</title>
             </Head>
-            <div className="dashboard">
-            <div className="container" style={{ marginTop: "80px" }}>
-                <div className="row justify-content-center">
-                    <div className="col-md-12">
-                        <div className="card border-0 rounded shadow-sm">
-                            <div className="card-body">
-                                SELAMAT DATANG <strong className="text-uppercase">{user.name}</strong>
-                                <hr />
-                                <Link href="/admin/posts/create">
-                                    <button className="btn btn-primary border-0 shadow-sm mb-3">Tambah</button>
-                                </Link>
-                                <button onClick={logoutHandler} className="btn btn-md btn-danger mb-3 mr-3">Logout</button>
-                                <table className="table table-bordered mb-0" id="tablepost">
+            <div className="d-flex" id="wrapper">
+
+        <div className="primary-bg" id="sidebar-wrapper">
+            <div className="sidebar-heading text-center py-4 second-text fs-4 fw-bold text-uppercase border-bottom">Admin</div>
+            <div className="list-group list-group-flush my-3">
+                <Link href="/admin/dashboard" legacyBehavior>
+                        <a className="list-group-item list-group-item-action bg-transparent second-text "><i
+                        className="fa fa-file-text me-2"></i>List Artikel</a>
+                </Link>
+                <Link href="/admin/posts/create" legacyBehavior>
+                <a className="list-group-item list-group-item-action bg-transparent second-text"><i
+                        className="fa fa-plus-square me-2"></i>Tambah Artikel</a>
+                </Link>
+                
+                <button onClick={logoutHandler} className="list-group-item list-group-item-action bg-transparent second-text"><i
+                        className="fa fa-power-off me-2"></i>Logout</button>
+    
+                
+            </div>
+        </div>
+
+
+
+        <div id="page-content-wrapper">
+            <nav className="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div className="d-flex align-items-center">
+                    <i className="fa fa-bars third-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 className="fs-2 m-0">Dashboard</h2>
+                </div>
+            </nav>
+
+            <div className="container-fluid px-4">
+                <div className="row my-5">
+                    <h3 className="fs-4 mb-3">Daftar Artikel</h3>
+                    <div className="col">
+                        <table className="table table-bordered mb-0" id="tablepost">
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
@@ -163,12 +194,11 @@ function Dashboard(props) {
                                 )) }
                                 </tbody>
                             </table>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
+
             </div>
+        </div>
             </div>
 
         </Layout>

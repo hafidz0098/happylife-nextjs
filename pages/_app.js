@@ -3,6 +3,7 @@ import 'remixicon/fonts/remixicon.css'
 
 //import bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import Head from 'next/head';
 import Script from "next/script";
 

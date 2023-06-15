@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import Router from 'next/router';
-import Layout from '../../../../layouts/default';
+import Layout from '../../../../layouts/admin';
 import axios from "axios";
 import Head from 'next/head';
 import Swal from 'sweetalert2';
+import Cookies from 'js-cookie';
 import React, { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import Link from 'next/link';
@@ -74,22 +75,104 @@ function PostCreate() {
         })
         
     };
+    //get token
+    const token = Cookies.get('token');
+
+    //state user
+    const [user, setUser] = useState({});
+
+    //function "fetchData"
+    const fetchData = async () => {
+
+        //set axios header dengan type Authorization + Bearer token
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        //fetch user from Rest API
+        await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/api/user`)
+        .then((response) => {
+
+            //set response user to state
+            setUser(response.data);
+        })
+    }
+    
+
+    //hook useEffect
+    useEffect(() => {
+
+        //check token empty
+        if(!token) {
+
+            //redirect login page
+            Router.push('/login');
+        }
+        
+        //call function "fetchData"
+        fetchData();
+        const el = document.getElementById("wrapper");
+        const toggleButton = document.getElementById("menu-toggle");
+
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+
+    }, []);
+
+    const logoutHandler = async () => {
+
+        //set axios header dengan type Authorization + Bearer token
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        //fetch Rest API
+        await axios.post(`${process.env.NEXT_PUBLIC_API_BACKEND}/api/logout`)
+        .then(() => {
+
+            //remove token from cookies
+            Cookies.remove("token");
+
+            //redirect halaman login
+            Router.push('/login');
+        });
+    };
+    
 
     return (
         <Layout>
             <Head>
                 <title>Dashboard</title>
             </Head>
-            <div className="container" style={{ marginTop: '80px' }}>
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="card border-0 rounded shadow-sm">
+            <div className="d-flex" id="wrapper">
+
+        <div className="primary-bg" id="sidebar-wrapper">
+            <div className="sidebar-heading text-center py-4 second-text fs-4 fw-bold text-uppercase border-bottom">Admin</div>
+            <div className="list-group list-group-flush my-3">
+                <Link href="/admin/dashboard" legacyBehavior>
+                        <a className="list-group-item list-group-item-action bg-transparent second-text "><i
+                        className="fa fa-file-text me-2"></i>List Artikel</a>
+                </Link>
+                <a href="#" className="list-group-item list-group-item-action bg-transparent second-text"><i
+                        className="fa fa-plus-square me-2"></i>Tambah Artikel</a>
+                <button onClick={logoutHandler} className="list-group-item list-group-item-action bg-transparent second-text"><i
+                        className="fa fa-power-off me-2"></i>Logout</button>
+    
+                
+            </div>
+        </div>
+
+
+
+        <div id="page-content-wrapper">
+            <nav className="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div className="d-flex align-items-center">
+                    <i className="fa fa-bars third-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 className="fs-2 m-0">Dashboard</h2>
+                </div>
+            </nav>
+
+            <div className="container-fluid px-4">
+                <div className="row my-5">
+                    <h3 className="fs-4 mb-3">Tambah Artikel</h3>
+                    <div className="col">
+                    <div className="card border-0 rounded shadow-sm">
                             <div className="card-body">
-                                <strong>Tambah Artikel</strong>
-                                <hr />
-                                <Link href="/admin/dashboard">
-                                    <button className="btn btn-primary border-0 shadow-sm mb-3">Kembali</button>
-                                </Link>
                                 <form onSubmit={ storePost }>
 
                                     <div className="form-group mb-3">
@@ -153,6 +236,9 @@ function PostCreate() {
                         </div>
                     </div>
                 </div>
+
+            </div>
+        </div>
             </div>
         </Layout>
     );
