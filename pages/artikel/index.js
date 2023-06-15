@@ -42,7 +42,7 @@ function PostIndex(props) {
             {posts.map((post) => (
               <div className="col-lg-3 d-flex align-items-stretch justify-content-center" key={post.id}>
                     <div className="card">
-                        <img src={`${process.env.NEXT_PUBLIC_API_BACKEND}/storage/posts/${post.image}`} alt="..."/>
+                        <img className="card-image-artikel" src={`${process.env.NEXT_PUBLIC_API_BACKEND}/storage/posts/${post.image}`} alt="..."/>
                         <div className="card-body">
                           <h5 className="card-title">{post.title}</h5>
                           <div className="artikel-content card-text" dangerouslySetInnerHTML={{ __html: post.content }}></div>

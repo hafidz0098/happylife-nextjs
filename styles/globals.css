@@ -98,8 +98,16 @@ button .navbar-toggler-icon{
   margin-bottom: 150px;
 }
 
+.dashboard{
+  min-height: 80vh;
+}
+
 .card-body{
     padding: 20px;
+}
+
+.card-image-artikel{
+  height: 180px;
 }
 
 .card-title{

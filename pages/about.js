@@ -62,7 +62,7 @@ function About(){
               <div className="member d-flex align-items-start">
                 <div className="pic"><img src="/Group 107.png" className="img-fluid" alt=""/></div>
                 <div className="member-info">
-                  <h4>Indy Istiqomah</h4>
+                  <h4>Indy Istiqamah</h4>
                   <span>Frontend Developer</span>
                   <div className="social">
                     <a href=""><i className="ri-github-fill"></i></a>

@@ -128,6 +128,7 @@ function Dashboard(props) {
             <Head>
                 <title>Dashboard</title>
             </Head>
+            <div className="dashboard">
             <div className="container" style={{ marginTop: "80px" }}>
                 <div className="row justify-content-center">
                     <div className="col-md-12">
@@ -140,35 +141,36 @@ function Dashboard(props) {
                                 </Link>
                                 <button onClick={logoutHandler} className="btn btn-md btn-danger mb-3 mr-3">Logout</button>
                                 <table className="table table-bordered mb-0" id="tablepost">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Gambar</th>
-                                            <th scope="col">Judul</th>
-                                            <th scope="col">Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    { posts.map((post) => (
-                                        <tr key={ post.id }>
-                                            <td className="text-center">
-                                                <img src={`${process.env.NEXT_PUBLIC_API_BACKEND}/storage/posts/${post.image}`} width="150" className="rounded-3"/>
-                                            </td>
-                                            <td>{ post.title }</td>
-                                            <td className="text-center">
-                                                <Link href={`/admin/posts/edit/${post.id}`}>
-                                                    <button className="btn btn-sm btn-primary border-0 shadow-sm mb-3 me-3">Edit</button>
-                                                </Link>
-                                                <button onClick={() => deletePost(post.id)} className="btn btn-sm btn-danger border-0 shadow-sm mb-3">Delete</button>
-                                            </td>
-                                        </tr>
-                                    )) }
-                                    </tbody>
-                                </table>  
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Judul</th>
+                                        <th scope="col">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                { posts.map((post, index) => (
+                                    <tr key={ post.id }>
+                                        <td>{ index + 1 }</td>
+                                        <td>{ post.title }</td>
+                                        <td className="text-center">
+                                            <Link href={`/admin/posts/edit/${post.id}`}>
+                                                <button className="btn btn-sm btn-primary border-0 shadow-sm mb-3 me-3">Edit</button>
+                                            </Link>
+                                            <button onClick={() => deletePost(post.id)} className="btn btn-sm btn-danger border-0 shadow-sm mb-3">Delete</button>
+                                        </td>
+                                    </tr>
+                                )) }
+                                </tbody>
+                            </table>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            </div>
+
         </Layout>
         
     )

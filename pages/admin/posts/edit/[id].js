@@ -4,6 +4,7 @@ import Layout from '../../../../layouts/default';
 import axios from "axios";
 import React, { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
+import Link from 'next/link';
 
 //fetch with "getServerSideProps"
 export async function getServerSideProps({ params }) {
@@ -91,6 +92,11 @@ function PostEdit(props) {
                     <div className="col-md-12">
                         <div className="card border-0 rounded shadow-sm">
                             <div className="card-body">
+                            <strong>Edit Artikel</strong>
+                                <hr />
+                                <Link href="/admin/dashboard">
+                                    <button className="btn btn-primary border-0 shadow-sm mb-3">Kembali</button>
+                                </Link>
                                 <form onSubmit={ updatePost }>
 
                                     <div className="form-group mb-3">
