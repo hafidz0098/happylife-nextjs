@@ -1,11 +1,11 @@
 {
-    "theme_color": "#f69435",
-    "background_color": "#f69435",
+    "theme_color": "#182231",
+    "background_color": "#182231",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "name": "Aplikasi Kesehatan Mental",
-    "short_name": "mentalhealthapp",
+    "short_name": "HappyLife",
     "icons": [
         {
             "src": "/icon-192x192.png",
