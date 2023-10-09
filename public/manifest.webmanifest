@@ -4,8 +4,8 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "Aplikasi Kesehatan Mental",
-    "short_name": "HappyLife",
+    "name": "Mental Care",
+    "short_name": "mentalcare",
     "icons": [
         {
             "src": "/icon-192x192.png",
