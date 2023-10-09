@@ -11,7 +11,14 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta
+        name='viewport'
+        content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover'/>
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon-256x256.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon-384x384.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon-512x512.png" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
 
       <Script
