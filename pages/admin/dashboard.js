@@ -171,36 +171,42 @@ function Dashboard(props) {
                 <div className="row my-5">
                     <h3 className="fs-4 mb-3">Daftar Artikel</h3>
                     <div className="col">
-                        <table className="table table-bordered mb-0" id="tablepost">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Judul</th>
-                                        <th scope="col">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                { posts.map((post, index) => (
-                                    <tr key={ post.id }>
-                                        <td>{ index + 1 }</td>
-                                        <td>{ post.title }</td>
-                                        <td className="text-center">
-                                            <Link href={`/admin/posts/edit/${post.id}`}>
-                                                <button className="btn btn-sm btn-primary border-0 shadow-sm mb-3 me-3"><i
-                                                    className="fa fa-edit"></i></button>
-                                            </Link>
-                                            <Link href={`/artikel/${post.id}`} target="_blank">
-                                                <button className="btn btn-sm btn-warning border-0 shadow-sm mb-3 me-3"><i
-                                                    className="fa fa-eye"></i></button>
-                                            </Link>
-                                            <button onClick={() => deletePost(post.id)} className="btn btn-sm btn-danger border-0 shadow-sm mb-3"><i
-                                                className="fa fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                )) }
-                                </tbody>
-                            </table>
-                    </div>
+                                <table className="table table-bordered mb-0" id="tablepost">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Judul</th>
+                                            <th scope="col">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {posts.length === 0 ? (
+                                            <tr>
+                                                <td colSpan="3">No articles available.</td>
+                                            </tr>
+                                        ) : (
+                                            posts.map((post, index) => (
+                                                <tr key={post.id}>
+                                                    <td>{index + 1}</td>
+                                                    <td>{post.title}</td>
+                                                    <td className="text-center">
+                                                    <Link href={`/admin/posts/edit/${post.id}`}>
+                                                        <button className="btn btn-sm btn-primary border-0 shadow-sm mb-3 me-3"><i
+                                                            className="fa fa-edit"></i></button>
+                                                    </Link>
+                                                    <Link href={`/artikel/${post.id}`} target="_blank">
+                                                        <button className="btn btn-sm btn-warning border-0 shadow-sm mb-3 me-3"><i
+                                                            className="fa fa-eye"></i></button>
+                                                    </Link>
+                                                    <button onClick={() => deletePost(post.id)} className="btn btn-sm btn-danger border-0 shadow-sm mb-3"><i
+                                                        className="fa fa-trash"></i></button>
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
                 </div>
 
             </div>

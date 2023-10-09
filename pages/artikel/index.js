@@ -39,8 +39,13 @@ function PostIndex(props) {
                 Artikel Tentang Kesehatan Mental
             </div>
             <div className="row gy-5 mb-5 justify-content-center">
-            {posts.map((post) => (
-              <div className="col-lg-3 d-flex align-items-stretch justify-content-center" key={post.id}>
+              {posts.length === 0 ? (
+                <div className="col-12">
+                  <p>Tidak ada artikel yang tersedia.</p>
+                </div>
+              ) : (
+                posts.map((post) => (
+                  <div className="col-lg-3 d-flex align-items-stretch justify-content-center" key={post.id}>
                     <div className="card">
                         <img className="card-image-artikel" src={`${process.env.NEXT_PUBLIC_API_BACKEND}/storage/posts/${post.image}`} alt="..."/>
                         <div className="card-body">
@@ -49,14 +54,15 @@ function PostIndex(props) {
                           <Link href={`/artikel/${post.id}`} legacyBehavior><a className="btn btn-artikel">Baca Selengkapnya</a></Link>
                         </div>
                       </div>
-                </div> 
-            ))}
+                  </div> 
+                ))
+              )}
             </div>
         </div>
-        
       </div>
     </Layout>
   );
 }
+
 
 export default PostIndex;
